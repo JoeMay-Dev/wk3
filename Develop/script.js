@@ -1,16 +1,12 @@
 // // Assignment Code
 const generateBtn = document.querySelector("#generate");
-// const passwordText = document.querySelector("#password");
 
-const lCase = 'abcdefghijklmnopqrstuvwxyz';
-const uCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const numeric = '0123456789';
-const special = '!#$%&()*+,-./:;<=>?@^_`{|}~';
-const pWord = []
-
-
-generateBtn.addEventListener('click', function () {
-
+function generatePassword() {
+  const lCase = 'abcdefghijklmnopqrstuvwxyz';
+  const uCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numeric = '0123456789';
+  const special = '!#$%&()*+,-./:;<=>?@^_`{|}~';
+  const pWord = []
   const err = ('User input error');
   const length = prompt('Select password length between 8-128 characters');
   if (length < 8 || length > 128) {
@@ -46,22 +42,12 @@ generateBtn.addEventListener('click', function () {
       i++;
     }
   }
+  function writePassword() {
+    const password = (pWord.join(''));
+    alert('Your secure password is: ' + password);
+  };
 
-  const password = (pWord.join(''));
-  alert('Your secure password is: ' + password);
+  writePassword();
+};
 
-});
-
-
-  
-
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
